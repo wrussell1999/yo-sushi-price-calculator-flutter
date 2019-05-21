@@ -37,50 +37,96 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String total = '£0.00';
+  double _totalValue = 0.00;
+  int _greenTotal = 0;
+  int _blueTotal = 0;
+  int _purpleTotal = 0;
+  int _orangeTotal = 0;
+  int _pinkTotal = 0;
+  int _greyTotal = 0;
 
-  void _add() {
+  void _add(double increase) {
     setState(() {
-      
+      _totalValue += increase;
     });
   }
 
-  void _clear() {
+  void _remove(double decrease) {
     setState(() {
+      if (_totalValue - decrease < 0) {
+        _totalValue = 0.00;
+      } else {
+        _totalValue -= decrease;
+      }
     });
   }
 
   void _clearAll() {
     setState(() {
-      total = '£0.00';
+      _totalValue = 0.00;
+      _greenTotal = 0;
+      _blueTotal = 0;
+      _purpleTotal = 0;
+      _orangeTotal = 0;
+      _pinkTotal = 0;
+      _greyTotal = 0;
     });
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) {    
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
+      body: new Container(
+        child: new Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              '£0.00',
-              style: new TextStyle(
-                fontSize: 64.0,
-                color: Colors.black,)
+            new Container(
+              child: new Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                new RaisedButton(
+                  child: Text("Add"),
+                  onPressed: () => _add(2.30),
+                  color: Colors.lightGreen,
+                  textColor: Colors.white,
+                  padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
+                  shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+                  splashColor: Colors.grey,
+                  ),
+                new Text("$_greenTotal",),
+                new RaisedButton(
+                  child: Text("Remove"),
+                  onPressed: () => _remove(2.30),
+                  color: Colors.lightGreen,
+                  textColor: Colors.white,
+                  padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
+                  shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+                  splashColor: Colors.grey,
+                  )  
+              ],)
             ),
-            RaisedButton(
-                child: Text("Clear all"),
-                onPressed: _clearAll,
-                color: Colors.deepOrange,
-                textColor: Colors.white,
-                padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
-                shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
-                splashColor: Colors.grey,
-            )
+            new Container(
+              child: new Column(children: <Widget>[
+                Text(
+                  "$_totalValue",
+                  style: new TextStyle(
+                    fontSize: 64.0,
+                    color: Colors.black,)
+                ),
+                RaisedButton(
+                  child: Text("Clear all"),
+                  onPressed: _clearAll,
+                  color: Colors.deepOrange,
+                  textColor: Colors.white,
+                  padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
+                  shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+                  splashColor: Colors.grey,
+                )
+              ],)
+            ),
           ],
         ),
       ),
