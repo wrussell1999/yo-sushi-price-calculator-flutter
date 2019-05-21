@@ -45,19 +45,72 @@ class _MyHomePageState extends State<MyHomePage> {
   int _pinkTotal = 0;
   int _greyTotal = 0;
 
-  void _add(double increase) {
+  void _add(double increase, String colour) {
     setState(() {
       _totalValue += increase;
+      switch(colour) {
+        case "green": {
+          _greenTotal++;
+        }
+        break;
+        case "blue": {
+          _blueTotal++;
+        }
+        break;
+        case "purple": {
+          _purpleTotal++;
+        }
+        break;
+        case "orange": {
+          _orangeTotal++;
+        }
+        break;
+        case "pink": {
+          _pinkTotal++;
+        }
+        break;
+        case "grey": {
+          _greyTotal++;
+        }
+        break;
+      }
     });
   }
 
-  void _remove(double decrease) {
+  void _remove(double decrease, String colour) {
     setState(() {
       if (_totalValue - decrease < 0) {
         _totalValue = 0.00;
       } else {
         _totalValue -= decrease;
       }
+      switch(colour) {
+        case "green": {
+          _greenTotal--;
+        }
+        break;
+        case "blue": {
+          _blueTotal--;
+        }
+        break;
+        case "purple": {
+          _purpleTotal--;
+        }
+        break;
+        case "orange": {
+          _orangeTotal--;
+        }
+        break;
+        case "pink": {
+          _pinkTotal--;
+        }
+        break;
+        case "grey": {
+          _greyTotal--;
+        }
+        break;
+      }
+
     });
   }
 
@@ -89,7 +142,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: <Widget>[
                 new RaisedButton(
                   child: Text("Add"),
-                  onPressed: () => _add(2.30),
+                  onPressed: () => _add(2.30, "green"),
                   color: Colors.lightGreen,
                   textColor: Colors.white,
                   padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
@@ -99,7 +152,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 new Text("$_greenTotal",),
                 new RaisedButton(
                   child: Text("Remove"),
-                  onPressed: () => _remove(2.30),
+                  onPressed: () => _remove(2.30, "green"),
                   color: Colors.lightGreen,
                   textColor: Colors.white,
                   padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
@@ -114,7 +167,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: <Widget>[
                 new RaisedButton(
                   child: Text("Add"),
-                  onPressed: () => _add(3.00),
+                  onPressed: () => _add(3.00, "blue"),
                   color: Colors.blueAccent,
                   textColor: Colors.white,
                   padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
@@ -124,7 +177,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 new Text("$_blueTotal",),
                 new RaisedButton(
                   child: Text("Remove"),
-                  onPressed: () => _remove(3.00),
+                  onPressed: () => _remove(3.00, "blue"),
                   color: Colors.blueAccent,
                   textColor: Colors.white,
                   padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
@@ -139,7 +192,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: <Widget>[
                 new RaisedButton(
                   child: Text("Add"),
-                  onPressed: () => _add(4.00),
+                  onPressed: () => _add(4.00, "purple"),
                   color: Colors.deepPurple,
                   textColor: Colors.white,
                   padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
@@ -149,7 +202,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 new Text("$_purpleTotal",),
                 new RaisedButton(
                   child: Text("Remove"),
-                  onPressed: () => _remove(4.00),
+                  onPressed: () => _remove(4.00, "purple"),
                   color: Colors.deepPurple,
                   textColor: Colors.white,
                   padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
@@ -164,7 +217,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: <Widget>[
                 new RaisedButton(
                   child: Text("Add"),
-                  onPressed: () => _add(4.50),
+                  onPressed: () => _add(4.50, "orange"),
                   color: Colors.deepOrange,
                   textColor: Colors.white,
                   padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
@@ -174,7 +227,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 new Text("$_orangeTotal",),
                 new RaisedButton(
                   child: Text("Remove"),
-                  onPressed: () => _remove(4.50),
+                  onPressed: () => _remove(4.50, "orange"),
                   color: Colors.deepOrange,
                   textColor: Colors.white,
                   padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
@@ -189,7 +242,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: <Widget>[
                 new RaisedButton(
                   child: Text("Add"),
-                  onPressed: () => _add(5.00),
+                  onPressed: () => _add(5.00, "pink"),
                   color: Colors.pink,
                   textColor: Colors.white,
                   padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
@@ -199,7 +252,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 new Text("$_pinkTotal",),
                 new RaisedButton(
                   child: Text("Remove"),
-                  onPressed: () => _remove(5.00),
+                  onPressed: () => _remove(5.00, "pink"),
                   color: Colors.pinkAccent,
                   textColor: Colors.white,
                   padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
@@ -214,7 +267,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: <Widget>[
                 new RaisedButton(
                   child: Text("Add"),
-                  onPressed: () => _add(5.50),
+                  onPressed: () => _add(5.50, "grey"),
                   color: Colors.grey,
                   textColor: Colors.white,
                   padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
@@ -224,7 +277,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 new Text("$_greyTotal",),
                 new RaisedButton(
                   child: Text("Remove"),
-                  onPressed: () => _remove(5.50),
+                  onPressed: () => _remove(5.50, "grey"),
                   color: Colors.grey,
                   textColor: Colors.white,
                   padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
