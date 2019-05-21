@@ -109,6 +109,131 @@ class _MyHomePageState extends State<MyHomePage> {
               ],)
             ),
             new Container(
+              child: new Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                new RaisedButton(
+                  child: Text("Add"),
+                  onPressed: () => _add(3.00),
+                  color: Colors.blueAccent,
+                  textColor: Colors.white,
+                  padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
+                  shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+                  splashColor: Colors.grey,
+                  ),
+                new Text("$_blueTotal",),
+                new RaisedButton(
+                  child: Text("Remove"),
+                  onPressed: () => _remove(3.00),
+                  color: Colors.blueAccent,
+                  textColor: Colors.white,
+                  padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
+                  shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+                  splashColor: Colors.grey,
+                  )  
+              ],)
+            ),
+            new Container(
+              child: new Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                new RaisedButton(
+                  child: Text("Add"),
+                  onPressed: () => _add(4.00),
+                  color: Colors.deepPurple,
+                  textColor: Colors.white,
+                  padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
+                  shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+                  splashColor: Colors.grey,
+                  ),
+                new Text("$_purpleTotal",),
+                new RaisedButton(
+                  child: Text("Remove"),
+                  onPressed: () => _remove(4.00),
+                  color: Colors.deepPurple,
+                  textColor: Colors.white,
+                  padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
+                  shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+                  splashColor: Colors.grey,
+                  )  
+              ],)
+            ),
+            new Container(
+              child: new Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                new RaisedButton(
+                  child: Text("Add"),
+                  onPressed: () => _add(4.50),
+                  color: Colors.deepOrange,
+                  textColor: Colors.white,
+                  padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
+                  shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+                  splashColor: Colors.grey,
+                  ),
+                new Text("$_orangeTotal",),
+                new RaisedButton(
+                  child: Text("Remove"),
+                  onPressed: () => _remove(4.50),
+                  color: Colors.deepOrange,
+                  textColor: Colors.white,
+                  padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
+                  shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+                  splashColor: Colors.grey,
+                  )  
+              ],)
+            ),
+            new Container(
+              child: new Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                new RaisedButton(
+                  child: Text("Add"),
+                  onPressed: () => _add(5.00),
+                  color: Colors.pink,
+                  textColor: Colors.white,
+                  padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
+                  shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+                  splashColor: Colors.grey,
+                  ),
+                new Text("$_pinkTotal",),
+                new RaisedButton(
+                  child: Text("Remove"),
+                  onPressed: () => _remove(5.00),
+                  color: Colors.pinkAccent,
+                  textColor: Colors.white,
+                  padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
+                  shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+                  splashColor: Colors.grey,
+                  )  
+              ],)
+            ),
+            new Container(
+              child: new Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                new RaisedButton(
+                  child: Text("Add"),
+                  onPressed: () => _add(5.50),
+                  color: Colors.grey,
+                  textColor: Colors.white,
+                  padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
+                  shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+                  splashColor: Colors.grey,
+                  ),
+                new Text("$_greyTotal",),
+                new RaisedButton(
+                  child: Text("Remove"),
+                  onPressed: () => _remove(5.50),
+                  color: Colors.grey,
+                  textColor: Colors.white,
+                  padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
+                  shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+                  splashColor: Colors.grey,
+                  )  
+              ],)
+            ),
+            new Container(
               child: new Column(children: <Widget>[
                 Text(
                   "$_totalValue",
