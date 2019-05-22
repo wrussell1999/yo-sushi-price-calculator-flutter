@@ -45,23 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int _pinkTotal = 0;
   int _greyTotal = 0;
 
-  int _add(double increase, int _typeTotal) {
-    setState(() {
-      _overallTotal += increase;
-      _typeTotal++;
-    });
-    return _typeTotal;
-  }
 
-  int _remove(double decrease, int _typeTotal) {
-    if (_typeTotal != 0) {
-      setState(() {
-        _typeTotal--;
-        _overallTotal -= decrease;
-      });
-    }
-    return _typeTotal;
-  }
   void _clearAll() {
     setState(() {
       _overallTotal = 0.00;
@@ -84,12 +68,12 @@ class _MyHomePageState extends State<MyHomePage> {
           child: new Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            new PlateRow(Colors.lightGreen, 2.30, _greenTotal, _add, _remove),
-            new PlateRow(Colors.blueGrey, 3.00, _blueTotal, _add, _remove),
-            new PlateRow(Colors.deepPurple, 4.00, _purpleTotal, _add, _remove),
-            new PlateRow(Colors.deepOrange, 4.50, _orangeTotal, _add, _remove),
-            new PlateRow(Colors.pinkAccent, 5.00, _pinkTotal, _add, _remove),
-            new PlateRow(Colors.grey, 5.50, _greyTotal, _add, _remove),
+            new PlateRow(Colors.lightGreen, 2.30, _greenTotal, _overallTotal),
+            new PlateRow(Colors.blueGrey, 3.00, _blueTotal, _overallTotal),
+            new PlateRow(Colors.deepPurple, 4.00, _purpleTotal, _overallTotal),
+            new PlateRow(Colors.deepOrange, 4.50, _orangeTotal, _overallTotal),
+            new PlateRow(Colors.pinkAccent, 5.00, _pinkTotal, _overallTotal),
+            new PlateRow(Colors.grey, 5.50, _greyTotal, _overallTotal),
             Padding(
               padding: EdgeInsets.all(8.0),
               child: new Container(
