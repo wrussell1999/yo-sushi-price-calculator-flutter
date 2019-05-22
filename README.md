@@ -1,17 +1,7 @@
-# yo_sushi_price_calculator_flutter
+# YO! Sushi Price Calculator in Flutter
 
-A new Flutter project.
+I decided to remake my simple app [_YO! Sushi Price Calculator_](https://github.com/wrussell1999/yo-sushi-price-calculator) in Flutter.
 
-## Getting Started
+## What is this?
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
-# yo-sushi-price-calculator-flutter
+An easy way to add up all the dishes you've eaten so you don't go over budget.
