@@ -37,7 +37,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  double _totalValue = 0.00;
+  double _overallTotal = 0.00;
   int _greenTotal = 0;
   int _blueTotal = 0;
   int _purpleTotal = 0;
@@ -45,90 +45,26 @@ class _MyHomePageState extends State<MyHomePage> {
   int _pinkTotal = 0;
   int _greyTotal = 0;
 
-  void _add(double increase, String colour) {
+  int _add(double increase, int _typeTotal) {
     setState(() {
-      _totalValue += increase;
-      switch(colour) {
-        case "green": {
-          _greenTotal++;
-        }
-        break;
-        case "blue": {
-          _blueTotal++;
-        }
-        break;
-        case "purple": {
-          _purpleTotal++;
-        }
-        break;
-        case "orange": {
-          _orangeTotal++;
-        }
-        break;
-        case "pink": {
-          _pinkTotal++;
-        }
-        break;
-        case "grey": {
-          _greyTotal++;
-        }
-        break;
-      }
+      _overallTotal += increase;
+      _typeTotal++;
     });
+    return _typeTotal;
   }
 
-  void _remove(double decrease, String colour) {
-    setState(() {
-      switch(colour) {
-        case "green": {
-          if (_greenTotal != 0) {
-          _greenTotal--;
-          _totalValue -= decrease;
-          }
-        }
-        break;
-        case "blue": {
-          if (_blueTotal != 0) {
-            _blueTotal--;
-            _totalValue -= decrease;
-          }
-        }
-        break;
-        case "purple": {
-          if (_purpleTotal != 0) {
-            _purpleTotal--;
-            _totalValue -= decrease;
-          }
-        }
-        break;
-        case "orange": {
-          if (_orangeTotal != 0) {
-            _orangeTotal--;
-            _totalValue -= decrease;
-          }
-        }
-        break;
-        case "pink": {
-          if (_pinkTotal != 0) {
-            _pinkTotal--;
-            _totalValue -= decrease;
-          }
-        }
-        break;
-        case "grey": {
-          if (_greyTotal != 0) {
-            _greyTotal--; 
-            _totalValue -= decrease;
-          }
-        }
-        break;
-      }
-    });
+  int _remove(double decrease, int _typeTotal) {
+    if (_typeTotal != 0) {
+      setState(() {
+        _typeTotal--;
+        _overallTotal -= decrease;
+      });
+    }
+    return _typeTotal;
   }
-
   void _clearAll() {
     setState(() {
-      _totalValue = 0.00;
+      _overallTotal = 0.00;
       _greenTotal = 0;
       _blueTotal = 0;
       _purpleTotal = 0;
@@ -148,18 +84,18 @@ class _MyHomePageState extends State<MyHomePage> {
           child: new Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            new PlateRow(_add, _remove,"green", Colors.lightGreen, 2.30, _greenTotal),
-            new PlateRow(_add, _remove,"blue", Colors.blueGrey, 3.00, _blueTotal),
-            new PlateRow(_add, _remove,"purple", Colors.deepPurple, 4.00, _purpleTotal),
-            new PlateRow(_add, _remove,"orange", Colors.deepOrange, 4.50, _orangeTotal),
-            new PlateRow(_add, _remove,"pink", Colors.pinkAccent, 5.00, _pinkTotal),
-            new PlateRow(_add, _remove,"grey", Colors.grey, 5.50, _greyTotal),
+            new PlateRow(Colors.lightGreen, 2.30, _greenTotal, _add, _remove),
+            new PlateRow(Colors.blueGrey, 3.00, _blueTotal, _add, _remove),
+            new PlateRow(Colors.deepPurple, 4.00, _purpleTotal, _add, _remove),
+            new PlateRow(Colors.deepOrange, 4.50, _orangeTotal, _add, _remove),
+            new PlateRow(Colors.pinkAccent, 5.00, _pinkTotal, _add, _remove),
+            new PlateRow(Colors.grey, 5.50, _greyTotal, _add, _remove),
             Padding(
               padding: EdgeInsets.all(8.0),
               child: new Container(
                 child: new Column(children: <Widget>[
                   Text(
-                    "£" + _totalValue.toStringAsFixed(2),
+                    "£" + _overallTotal.toStringAsFixed(2),
                     style: new TextStyle(
                       fontSize: 64.0,
                       color: Colors.black,)

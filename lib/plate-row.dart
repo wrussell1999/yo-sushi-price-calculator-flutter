@@ -3,13 +3,12 @@ import 'package:flutter/material.dart';
 
 class PlateRow extends StatelessWidget {
   
+  final colour;
+  final price; 
+  var _typeTotal;
   final Function _add;
   final Function _remove;
-  var type;
-  var colour;
-  var price; 
-  var _total;
-  PlateRow(this._add, this._remove, this.type, this.colour, this.price, this._total);
+  PlateRow(this.colour, this.price, this._typeTotal, this._add, this._remove);
 
   @override
   Widget build(BuildContext context) {
@@ -21,17 +20,17 @@ class PlateRow extends StatelessWidget {
           children: <Widget>[
           new RaisedButton(
             child: Text("Add"),
-            onPressed: () => _add(price, type),
+            onPressed: () => _typeTotal = _add(price, _typeTotal),
             color: colour,
             textColor: Colors.white,
             padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
             shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
             splashColor: Colors.grey,
             ),
-          new Text("$_total",),
+          new Text("$_typeTotal",),
           new RaisedButton(
             child: Text("Remove"),
-            onPressed: () => _remove(price, type),
+            onPressed: () => _typeTotal = _remove(price, _typeTotal),
             color: colour,
             textColor: Colors.white,
             padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
