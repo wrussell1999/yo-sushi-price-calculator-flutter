@@ -79,34 +79,47 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _remove(double decrease, String colour) {
     setState(() {
-      if (_totalValue - decrease < 0) {
-        _totalValue = 0.00;
-      } else {
-        _totalValue -= decrease;
-      }
       switch(colour) {
         case "green": {
+          if (_greenTotal != 0) {
           _greenTotal--;
+          _totalValue -= decrease;
+          }
         }
         break;
         case "blue": {
-          _blueTotal--;
+          if (_blueTotal != 0) {
+            _blueTotal--;
+            _totalValue -= decrease;
+          }
         }
         break;
         case "purple": {
-          _purpleTotal--;
+          if (_purpleTotal != 0) {
+            _purpleTotal--;
+            _totalValue -= decrease;
+          }
         }
         break;
         case "orange": {
-          _orangeTotal--;
+          if (_orangeTotal != 0) {
+            _orangeTotal--;
+            _totalValue -= decrease;
+          }
         }
         break;
         case "pink": {
-          _pinkTotal--;
+          if (_pinkTotal != 0) {
+            _pinkTotal--;
+            _totalValue -= decrease;
+          }
         }
         break;
         case "grey": {
-          _greyTotal--;
+          if (_greyTotal != 0) {
+            _greyTotal--; 
+            _totalValue -= decrease;
+          }
         }
         break;
       }
