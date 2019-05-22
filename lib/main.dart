@@ -148,12 +148,12 @@ class _MyHomePageState extends State<MyHomePage> {
           child: new Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            new PlateRow(_add, _remove,"green", 2.30, _greenTotal),
-            new PlateRow(_add, _remove,"blue", 3.00, _blueTotal),
-            new PlateRow(_add, _remove,"purple", 4.00, _purpleTotal),
-            new PlateRow(_add, _remove,"orange", 4.50, _orangeTotal),
-            new PlateRow(_add, _remove,"pink", 5.00, _pinkTotal),
-            new PlateRow(_add, _remove,"grey", 5.50, _greyTotal),
+            new PlateRow(_add, _remove,"green", Colors.lightGreen, 2.30, _greenTotal),
+            new PlateRow(_add, _remove,"blue", Colors.blueGrey, 3.00, _blueTotal),
+            new PlateRow(_add, _remove,"purple", Colors.deepPurple, 4.00, _purpleTotal),
+            new PlateRow(_add, _remove,"orange", Colors.deepOrange, 4.50, _orangeTotal),
+            new PlateRow(_add, _remove,"pink", Colors.pinkAccent, 5.00, _pinkTotal),
+            new PlateRow(_add, _remove,"grey", Colors.grey, 5.50, _greyTotal),
             Padding(
               padding: EdgeInsets.all(8.0),
               child: new Container(

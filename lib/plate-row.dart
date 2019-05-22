@@ -5,10 +5,11 @@ class PlateRow extends StatelessWidget {
   
   final Function _add;
   final Function _remove;
+  var type;
   var colour;
   var price; 
   var _total;
-  PlateRow(this._add, this._remove, this.colour, this.price, this._total);
+  PlateRow(this._add, this._remove, this.type, this.colour, this.price, this._total);
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +21,8 @@ class PlateRow extends StatelessWidget {
           children: <Widget>[
           new RaisedButton(
             child: Text("Add"),
-            onPressed: () => _add(price, colour),
-            color: Colors.lightGreen,
+            onPressed: () => _add(price, type),
+            color: colour,
             textColor: Colors.white,
             padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
             shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
@@ -30,8 +31,8 @@ class PlateRow extends StatelessWidget {
           new Text("$_total",),
           new RaisedButton(
             child: Text("Remove"),
-            onPressed: () => _remove(price, colour),
-            color: Colors.lightGreen,
+            onPressed: () => _remove(price, type),
+            color: colour,
             textColor: Colors.white,
             padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
             shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
