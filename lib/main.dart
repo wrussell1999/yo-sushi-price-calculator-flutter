@@ -45,7 +45,6 @@ class _MyHomePageState extends State<MyHomePage> {
   int _pinkTotal = 0;
   int _greyTotal = 0;
 
-
   void _clearAll() {
     setState(() {
       _overallTotal = 0.00;
@@ -66,34 +65,35 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: new Container(
           child: new Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            new PlateRow(Colors.lightGreen, 2.30, _greenTotal, _overallTotal),
-            new PlateRow(Colors.blueGrey, 3.00, _blueTotal, _overallTotal),
-            new PlateRow(Colors.deepPurple, 4.00, _purpleTotal, _overallTotal),
-            new PlateRow(Colors.deepOrange, 4.50, _orangeTotal, _overallTotal),
-            new PlateRow(Colors.pinkAccent, 5.00, _pinkTotal, _overallTotal),
-            new PlateRow(Colors.grey, 5.50, _greyTotal, _overallTotal),
-            Padding(
-              padding: EdgeInsets.all(8.0),
-              child: new Container(
-                child: new Column(children: <Widget>[
-                  Text(
-                    "£" + _overallTotal.toStringAsFixed(2),
-                    style: new TextStyle(
-                      fontSize: 64.0,
-                      color: Colors.black,)
-                  ),
-                  RaisedButton(
-                    child: Text("Clear all"),
-                    onPressed: _clearAll,
-                    color: Colors.deepOrange,
-                    textColor: Colors.white,
-                    padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
-                    shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
-                    splashColor: Colors.grey,
-                  )
-                ],)
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              new PlateRow(Colors.lightGreen, 2.30, _greenTotal, _overallTotal),
+              new PlateRow(Colors.blueGrey, 3.00, _blueTotal, _overallTotal),
+              new PlateRow(Colors.deepPurple, 4.00, _purpleTotal, _overallTotal),
+              new PlateRow(Colors.deepOrange, 4.50, _orangeTotal, _overallTotal),
+              new PlateRow(Colors.pinkAccent, 5.00, _pinkTotal, _overallTotal),
+              new PlateRow(Colors.grey, 5.50, _greyTotal, _overallTotal),
+              Padding(
+                padding: EdgeInsets.all(8.0),
+                child: new Container(
+                  child: new Column(children: <Widget>[
+                    Text(
+                      "£" + _overallTotal.toStringAsFixed(2),
+                      style: new TextStyle(
+                        fontSize: 64.0,
+                        color: Colors.black,)
+                    ),
+                    RaisedButton(
+                      child: Text("Clear all"),
+                      onPressed: _clearAll,
+                      color: Colors.deepOrange,
+                      textColor: Colors.white,
+                      padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
+                      shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+                      splashColor: Colors.grey,
+                    )
+                  ],
+                )
               ),
             ),
           ],

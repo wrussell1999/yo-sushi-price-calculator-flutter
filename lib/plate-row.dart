@@ -16,8 +16,8 @@ class _PlateRow extends State<PlateRow> {
   
   void _add(double increase) {
     setState(() {
-      widget._overallTotal += increase;
       widget._typeTotal++;
+      widget._overallTotal += increase;
     });
   }
 
