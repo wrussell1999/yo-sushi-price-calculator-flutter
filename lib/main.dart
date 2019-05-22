@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:intl/intl.dart';
 
 
 
@@ -309,7 +310,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: new Container(
                 child: new Column(children: <Widget>[
                   Text(
-                    "$_totalValue",
+                    "£" + _totalValue.toStringAsFixed(2),
                     style: new TextStyle(
                       fontSize: 64.0,
                       color: Colors.black,)
