@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:yo_sushi_price_calculator_flutter/plate-row.dart';
 
 void main() {
   
@@ -23,6 +22,105 @@ class MyApp extends StatelessWidget {
         )
       ),
       home: MyHomePage(title: 'YO! Sushi Price Calculator'),
+    );
+  }
+}
+
+
+class PriceDisplay extends StatelessWidget {
+  PriceDisplay({this.overallTotal});
+
+  final double overallTotal;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      "£" + overallTotal.toStringAsFixed(2),
+      style: new TextStyle(
+        fontSize: 64.0,
+        color: Colors.black,)
+    );
+  }
+}
+
+class ClearButton extends StatelessWidget {
+  ClearButton({this.onPressed});
+
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return RaisedButton(
+      child: Text("Clear all"),
+      onPressed: onPressed,
+      color: Colors.deepOrange,
+      textColor: Colors.white,
+      padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
+      shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+      splashColor: Colors.grey,
+    );
+  }
+}
+
+class PlateTotal extends StatelessWidget {
+  PlateTotal({this.total});
+
+  final int total;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.all(8.0),
+      child: new Container(
+        child: new Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            new Text(total.toStringAsFixed(0)),
+          ],
+        )
+      ),
+    );
+  }
+}
+
+class PlateAdd extends StatelessWidget {
+  PlateAdd({this.onAdd, this.colour, this.typeTotal});
+
+  final VoidCallback onAdd;
+  final colour;
+  final typeTotal;
+
+  @override
+  Widget build(BuildContext context) {
+    return RaisedButton(
+      child: Text("Add"),
+      onPressed: () => onAdd,
+      color: colour,
+      textColor: Colors.white,
+      padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
+      shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+      splashColor: Colors.grey,
+    );
+  }
+}
+
+class PlateRemove extends StatelessWidget {
+  PlateRemove({this.onRemove, this.colour, this.typeTotal});
+
+  final VoidCallback onRemove;
+  final colour;
+  final typeTotal;
+
+  @override
+  Widget build(BuildContext context) {
+    return RaisedButton(
+      child: Text("Remove"),
+      onPressed: () => onRemove,
+      color: colour,
+      textColor: Colors.white,
+      padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
+      shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+      splashColor: Colors.grey,
     );
   }
 }
@@ -57,6 +155,21 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _add(double increase) {
+    setState(() {
+      _overallTotal += increase;
+    });
+  }
+
+  void _remove(double decrease) {
+    if (true) { //widget._typeTotal != 0) {
+      setState(() {
+        //widget._typeTotal--;
+        _overallTotal -= decrease;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {    
     return Scaffold(
@@ -67,31 +180,17 @@ class _MyHomePageState extends State<MyHomePage> {
           child: new Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              new PlateRow(Colors.lightGreen, 2.30, _greenTotal, _overallTotal),
-              new PlateRow(Colors.blueGrey, 3.00, _blueTotal, _overallTotal),
-              new PlateRow(Colors.deepPurple, 4.00, _purpleTotal, _overallTotal),
-              new PlateRow(Colors.deepOrange, 4.50, _orangeTotal, _overallTotal),
-              new PlateRow(Colors.pinkAccent, 5.00, _pinkTotal, _overallTotal),
-              new PlateRow(Colors.grey, 5.50, _greyTotal, _overallTotal),
+              Row(children: <Widget>[
+                PlateAdd(onAdd: () => _add(2.30), colour: Colors.lightGreen, typeTotal: _greenTotal),
+                PlateTotal(total: _greenTotal),
+                PlateRemove(onRemove: () => _remove(2.30), colour: Colors.lightGreen,typeTotal: _greenTotal)
+              ]),
               Padding(
                 padding: EdgeInsets.all(8.0),
                 child: new Container(
                   child: new Column(children: <Widget>[
-                    Text(
-                      "£" + _overallTotal.toStringAsFixed(2),
-                      style: new TextStyle(
-                        fontSize: 64.0,
-                        color: Colors.black,)
-                    ),
-                    RaisedButton(
-                      child: Text("Clear all"),
-                      onPressed: _clearAll,
-                      color: Colors.deepOrange,
-                      textColor: Colors.white,
-                      padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
-                      shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
-                      splashColor: Colors.grey,
-                    )
+                    PriceDisplay(overallTotal: _overallTotal),
+                    ClearButton(onPressed: _clearAll)
                   ],
                 )
               ),
