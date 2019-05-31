@@ -178,12 +178,49 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: new Container(
           child: new Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              Row(children: <Widget>[
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
                 PlateAdd(onAdd: () => _add(2.30), colour: Colors.lightGreen, typeTotal: _greenTotal),
                 PlateTotal(total: _greenTotal),
-                PlateRemove(onRemove: () => _remove(2.30), colour: Colors.lightGreen,typeTotal: _greenTotal)
+                PlateRemove(onRemove: () => _remove(2.30), colour: Colors.lightGreen, typeTotal: _greenTotal)
+              ]),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                PlateAdd(onAdd: () => _add(3.00), colour: Colors.blueGrey, typeTotal: _blueTotal),
+                PlateTotal(total: _greenTotal),
+                PlateRemove(onRemove: () => _remove(3.00), colour: Colors.blueGrey, typeTotal: _blueTotal)
+              ]),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                PlateAdd(onAdd: () => _add(4.00), colour: Colors.deepPurple, typeTotal: _purpleTotal),
+                PlateTotal(total: _greenTotal),
+                PlateRemove(onRemove: () => _remove(4.00), colour: Colors.deepPurple, typeTotal: _purpleTotal)
+              ]),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                PlateAdd(onAdd: () => _add(4.50), colour: Colors.deepOrange, typeTotal: _orangeTotal),
+                PlateTotal(total: _greenTotal),
+                PlateRemove(onRemove: () => _remove(4.50), colour: Colors.deepOrange, typeTotal: _orangeTotal)
+              ]),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                PlateAdd(onAdd: () => _add(5.00), colour: Colors.pinkAccent, typeTotal: _pinkTotal),
+                PlateTotal(total: _greenTotal),
+                PlateRemove(onRemove: () => _remove(5.00), colour: Colors.pinkAccent, typeTotal: _pinkTotal)
+              ]),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                PlateAdd(onAdd: () => _add(5.50), colour: Colors.grey, typeTotal: _greyTotal),
+                PlateTotal(total: _greenTotal),
+                PlateRemove(onRemove: () => _remove(5.50), colour: Colors.grey, typeTotal: _greyTotal)
               ]),
               Padding(
                 padding: EdgeInsets.all(8.0),
