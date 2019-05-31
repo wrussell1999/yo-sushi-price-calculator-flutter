@@ -84,17 +84,16 @@ class PlateTotal extends StatelessWidget {
 }
 
 class PlateAdd extends StatelessWidget {
-  PlateAdd({this.onAdd, this.colour, this.typeTotal});
+  PlateAdd({this.onAdd, this.colour});
 
   final VoidCallback onAdd;
   final colour;
-  final typeTotal;
 
   @override
   Widget build(BuildContext context) {
     return RaisedButton(
       child: Text("Add"),
-      onPressed: () => onAdd,
+      onPressed: onAdd,
       color: colour,
       textColor: Colors.white,
       padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
@@ -105,17 +104,16 @@ class PlateAdd extends StatelessWidget {
 }
 
 class PlateRemove extends StatelessWidget {
-  PlateRemove({this.onRemove, this.colour, this.typeTotal});
+  PlateRemove({this.onRemove, this.colour});
 
   final VoidCallback onRemove;
   final colour;
-  final typeTotal;
 
   @override
   Widget build(BuildContext context) {
     return RaisedButton(
       child: Text("Remove"),
-      onPressed: () => onRemove,
+      onPressed: onRemove,
       color: colour,
       textColor: Colors.white,
       padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
@@ -155,20 +153,102 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  void _add(double increase) {
+  void _addGreen() {
     setState(() {
-      _overallTotal += increase;
+      _greenTotal++;
+      _overallTotal += 2.30;
     });
   }
 
-  void _remove(double decrease) {
-    if (true) { //widget._typeTotal != 0) {
+  void _addBlue() {
+    setState(() {
+      _blueTotal++;
+      _overallTotal += 3.00;
+    });
+  }
+
+  void _addPurple() {
+    setState(() {
+      _purpleTotal++;
+      _overallTotal += 4.00;
+    });
+  }
+
+  void _addOrange() {
+    setState(() {
+      _orangeTotal++;
+      _overallTotal += 4.50;
+    });
+  }
+
+  void _addPink() {
+    setState(() {
+      _pinkTotal++;
+      _overallTotal += 5.00;
+    });
+  }
+
+  void _addGrey() {
+    setState(() {
+      _greyTotal++;
+      _overallTotal += 5.50;
+    });
+  }
+
+  void _removeGreen() {
+    if (_greenTotal - 1 >= 0) {
       setState(() {
-        //widget._typeTotal--;
-        _overallTotal -= decrease;
+        _greenTotal--;
+        _overallTotal -= 2.30;
       });
     }
   }
+
+  void _removeBlue() {
+    if (_blueTotal - 1 >= 0) {
+      setState(() {
+        _blueTotal--;
+        _overallTotal -= 3.00;
+      }); 
+    }
+  }
+
+  void _removePurple() {
+    if (_purpleTotal - 1 >= 0) {
+      setState(() {
+        _purpleTotal--;
+        _overallTotal -= 4.00;
+      });
+    }
+  }
+
+  void _removeOrange() {
+    if (_orangeTotal - 1 >= 0) {
+      setState(() {
+        _orangeTotal--;
+        _overallTotal -= 4.50;
+      });
+    }
+  }
+
+  void _removePink() {
+    if (_pinkTotal - 1 >= 0) {
+      setState(() {
+        _pinkTotal--;
+        _overallTotal -= 5.00;
+      });
+    }
+  }
+
+  void _removeGrey() {
+    if (_greyTotal - 1 >= 0) {
+      setState(() {
+        _greyTotal--;
+        _overallTotal -= 5.50;
+      });
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {    
@@ -183,44 +263,44 @@ class _MyHomePageState extends State<MyHomePage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
-                PlateAdd(onAdd: () => _add(2.30), colour: Colors.lightGreen, typeTotal: _greenTotal),
+                PlateAdd(onAdd: _addGreen, colour: Colors.lightGreen),
                 PlateTotal(total: _greenTotal),
-                PlateRemove(onRemove: () => _remove(2.30), colour: Colors.lightGreen, typeTotal: _greenTotal)
+                PlateRemove(onRemove: _removeGreen, colour: Colors.lightGreen)
               ]),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
-                PlateAdd(onAdd: () => _add(3.00), colour: Colors.blueGrey, typeTotal: _blueTotal),
-                PlateTotal(total: _greenTotal),
-                PlateRemove(onRemove: () => _remove(3.00), colour: Colors.blueGrey, typeTotal: _blueTotal)
+                PlateAdd(onAdd: _addBlue, colour: Colors.blueGrey),
+                PlateTotal(total: _blueTotal),
+                PlateRemove(onRemove: _removeBlue, colour: Colors.blueGrey)
               ]),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
-                PlateAdd(onAdd: () => _add(4.00), colour: Colors.deepPurple, typeTotal: _purpleTotal),
-                PlateTotal(total: _greenTotal),
-                PlateRemove(onRemove: () => _remove(4.00), colour: Colors.deepPurple, typeTotal: _purpleTotal)
+                PlateAdd(onAdd: _addPurple, colour: Colors.deepPurple),
+                PlateTotal(total: _purpleTotal),
+                PlateRemove(onRemove: _removePurple, colour: Colors.deepPurple)
               ]),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
-                PlateAdd(onAdd: () => _add(4.50), colour: Colors.deepOrange, typeTotal: _orangeTotal),
-                PlateTotal(total: _greenTotal),
-                PlateRemove(onRemove: () => _remove(4.50), colour: Colors.deepOrange, typeTotal: _orangeTotal)
+                PlateAdd(onAdd: _addOrange, colour: Colors.deepOrange),
+                PlateTotal(total: _orangeTotal),
+                PlateRemove(onRemove: _removeOrange, colour: Colors.deepOrange)
               ]),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
-                PlateAdd(onAdd: () => _add(5.00), colour: Colors.pinkAccent, typeTotal: _pinkTotal),
-                PlateTotal(total: _greenTotal),
-                PlateRemove(onRemove: () => _remove(5.00), colour: Colors.pinkAccent, typeTotal: _pinkTotal)
+                PlateAdd(onAdd: _addPink, colour: Colors.pinkAccent),
+                PlateTotal(total: _pinkTotal),
+                PlateRemove(onRemove: _removePink, colour: Colors.pinkAccent)
               ]),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
-                PlateAdd(onAdd: () => _add(5.50), colour: Colors.grey, typeTotal: _greyTotal),
-                PlateTotal(total: _greenTotal),
-                PlateRemove(onRemove: () => _remove(5.50), colour: Colors.grey, typeTotal: _greyTotal)
+                PlateAdd(onAdd: _addGrey, colour: Colors.grey),
+                PlateTotal(total: _greyTotal),
+                PlateRemove(onRemove: _removeGrey, colour: Colors.grey)
               ]),
               Padding(
                 padding: EdgeInsets.all(8.0),
